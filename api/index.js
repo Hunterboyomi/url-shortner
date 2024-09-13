@@ -30,7 +30,7 @@ app.post('/api/url', async (req, res) => {
 
         res.json({
             success: true,
-            shortURL: `https://domainname.com/location/${newUrl.shortURL}`,
+            shortURL: `https://url-shortner-lime-six.vercel.app/location/${newUrl.shortURL}`,
         });
     } catch (error) {
         res.status(500).json({ success: false, error: 'Error shortening URL' });
