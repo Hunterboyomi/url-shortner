@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortener</title>
+</head>
+<body>
+    <h1>Welcome to the URL Shortener</h1>
+    <form id="urlForm">
+        <input type="text" id="longUrl" placeholder="Enter a long URL" required>
+        <button type="submit">Shorten URL</button>
+    </form>
+
+    <p id="shortenedUrl"></p>
+
+    <script>
+        document.getElementById('urlForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const longUrl = document.getElementById('longUrl').value;
+            const response = await fetch('/api/url', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ longURL: longUrl }),
+            });
+
+            const data = await response.json();
+            if (data.success) {
+                document.getElementById('shortenedUrl').innerText = `Shortened URL: ${data.shortURL}`;
+            } else {
+                document.getElementById('shortenedUrl').innerText = 'Error shortening URL';
+            }
+        });
+    </script>
+</body>
+</html>
