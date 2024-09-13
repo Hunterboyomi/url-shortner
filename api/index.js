@@ -10,7 +10,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // Connect to MongoDB
-mongoose.connect('mongodb://hunterboy:6byCc5T505X19m0z@cluster0-shard-00-00.k6pjy.mongodb.net:27017,cluster0-shard-00-01.k6pjy.mongodb.net:27017,cluster0-shard-00-02.k6pjy.mongodb.net:27017/redirect?ssl=true&authSource=admin&retryWrites=true&w=majority', {
+mongoose.connect('mongodb+srv://hunterboyami:hunterboyami@cluster0.vixcq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 })
